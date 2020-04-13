@@ -1,0 +1,9 @@
+<h1 class="title">Search by Categories</h1>
+
+<div class="categories" *ngIf="(categories$ | async) as categories">
+    <div class="category" *ngFor="let category of categories" 
+        [ngStyle]="{'background-image': 'url(' + getCategoryImage(category) + ')'}"
+        (click)="searchByCategories(category)">
+        <span class="text">{{ category }}</span>
+    </div>
+</div>

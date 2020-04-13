@@ -1,0 +1,33 @@
+<header class="header">
+    <div class="logo">
+        <div class="logo" (click)="backToHome()">
+            <img src="assets/images/logo.png" alt="">
+            <h1>The Chuck Norris Facts</h1>
+        </div>
+    </div>
+
+    <app-search-box [query]="query"></app-search-box>
+</header>
+
+
+<div class="search-results" *ngIf="(results$ | async) as results">
+
+    <div class="no-results" *ngIf="!results || results.length < 1">
+        <img src="assets/images/chuck-not-allowed.png" alt="Chuck Norris">
+        <p>Chuck didn't allow any results this time</p>
+    </div>
+
+    <ng-container *ngIf="results && results.length > 0">
+        <p class="total">
+            Chuck Norris allowed {{total}} results
+        </p>
+    
+        <blockquote class="result" *ngFor="let result of results">
+            <p class="value">{{result.value}}</p>
+        </blockquote>
+    
+        <div class="navigation" *ngIf="isCategorySearch">
+            <span class="next" (click)="nextResult()">next quote &gt;</span>
+        </div>
+    </ng-container>
+</div>

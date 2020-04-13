@@ -1,0 +1,158 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header, .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background-color: rgb(241,91,36);
+    padding: 10px  20px;
+    flex-direction: column;
+
+    .logo {
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        img {
+            max-width: 62px;
+            height: auto;
+            margin-right: 6px;
+        }
+
+        h1 {
+            font-family: 'Western';
+            color: #fff;
+            font-size: 1.4em;
+            white-space: nowrap;
+        }
+    }
+}
+
+
+.search-results {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    flex-grow: 1;
+    background: transparent url('./../../assets/images/chuck-norris-approved.png') no-repeat right bottom;
+    background-size: 50% auto;
+    position: relative;
+
+    .total, .result {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .no-results  p,
+    .total {
+        font-family: 'Western';
+        color: rgb(241,91,36);
+        font-size: 1.6em;
+    }
+
+    .no-results {
+        text-align: center;
+
+        img {
+            max-width: 220px;
+            height: auto;
+        }
+    }
+
+    .total {
+        font-family: 'Western';
+        color: rgb(241,91,36);
+        font-size: 1.6em;
+        background: transparent url('./../../assets/images/chuck-ok.png') no-repeat right center;
+        background-size: contain;
+        padding: 16px  0;
+        margin-bottom: 20px;
+    }
+
+    .result {
+        width: 100%;
+        text-align: justify;
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        padding: .5em 10px;
+        quotes: "\201C" "\201D" "\2018" "\2019";
+        margin-bottom: 16px;
+        white-space: normal;
+        word-break: break-all;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: .1em;
+            margin-right: .25em;
+            vertical-align: -.4em;
+        }
+
+        .value {
+            font-family:  "Courier New", Arial, sans-serif;
+            font-size: 1.4em;
+        }
+    }
+
+    .navigation {
+        text-align: center;
+
+        .next {
+            position: relative;
+            height: 20px;
+            padding: 6px 8px 5px 6px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid #222;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 11px;
+            text-decoration: none;
+            font-family:  "Courier New", Arial, sans-serif;
+            font-size: 1.2em;
+        }
+    }
+}
+
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  
+    .header {
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .logo {
+            margin: 0  24px  0  0;
+        }
+    }
+
+    :host {
+        ::ng-deep {
+            app-search-box {
+                width: auto;
+    
+                .search-form {
+                    input {
+                        min-width: 500px;
+                    }
+                }
+            }
+        }
+    }
+
+    .search-results {
+        background-size: 25%  auto;
+        background-attachment: fixed;
+    }
+}
